@@ -60,66 +60,94 @@ export default function Home() {
             DTECH
           </h1>
 
-          <div
+          <button
+            onClick={() => setDark(!dark)}
             style={{
-              display: "flex",
-              gap: "20px",
-              alignItems: "center"
+              padding: "8px 12px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer"
             }}
           >
-            <a
-              href="/"
-              style={{
-                color: dark ? "white" : "black",
-                textDecoration: "none"
-              }}
-            >
-              Home
-            </a>
-
-            <button
-              onClick={() => setDark(!dark)}
-              style={{
-                padding: "8px 12px",
-                borderRadius: "8px",
-                border: "none",
-                cursor: "pointer"
-              }}
-            >
-              {dark ? "☀️ Light Mode" : "🌙 Dark Mode"}
-            </button>
-          </div>
+            {dark ? "☀️ Light Mode" : "🌙 Dark Mode"}
+          </button>
         </header>
 
-        {/* HERO */}
+        {/* FEATURED DPHONE */}
         <section
           style={{
             textAlign: "center",
             padding: "120px 20px"
           }}
         >
+          <h1
+            style={{
+              fontSize: "80px",
+              marginBottom: "10px"
+            }}
+          >
+            📱 DPHONE X1
+          </h1>
+
           <h2
             style={{
-              fontSize: "70px",
-              fontWeight: "bold",
+              fontSize: "48px",
               marginBottom: "20px"
             }}
           >
-            The Future of Technology
+            Power Beyond Limits
           </h2>
 
           <p
             style={{
-              fontSize: "22px",
-              color: dark ? "#999" : "#555",
               maxWidth: "700px",
-              margin: "auto"
+              margin: "0 auto",
+              fontSize: "20px",
+              color: dark ? "#aaa" : "#555"
             }}
           >
-            DTECH designs smartphones, tablets,
-            laptops, wearables and next-generation
-            smart technology.
+            Experience next-generation performance,
+            AI-powered photography, all-day battery life,
+            and premium design crafted by DTECH.
           </p>
+
+          <div
+            style={{
+              marginTop: "40px",
+              display: "flex",
+              justifyContent: "center",
+              gap: "20px",
+              flexWrap: "wrap"
+            }}
+          >
+            <a
+              href="/dphone"
+              style={{
+                background: "#2563eb",
+                color: "white",
+                textDecoration: "none",
+                padding: "14px 28px",
+                borderRadius: "10px",
+                fontWeight: "bold"
+              }}
+            >
+              Learn More
+            </a>
+
+            <a
+              href="/dphone"
+              style={{
+                border: "1px solid #444",
+                color: "white",
+                textDecoration: "none",
+                padding: "14px 28px",
+                borderRadius: "10px",
+                fontWeight: "bold"
+              }}
+            >
+              View Specs
+            </a>
+          </div>
         </section>
 
         {/* PRODUCTS */}
