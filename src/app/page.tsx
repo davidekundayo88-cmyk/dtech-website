@@ -1,56 +1,81 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [dark, setDark] = useState(true);
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black to-zinc-900 text-white">
+    <main className={dark ? "dark" : ""}>
 
-      {/* NAVBAR */}
-      <header className="flex justify-between items-center px-6 py-4 border-b border-white/10 backdrop-blur-md bg-black/40 sticky top-0">
-        <h1 className="text-xl font-bold tracking-widest">
-          DTECH
-        </h1>
+      <div style={{
+        minHeight: "100vh",
+        background: dark ? "#000" : "#f5f5f5",
+        color: dark ? "white" : "black",
+        transition: "0.3s"
+      }}>
 
-        <nav className="flex gap-6 text-sm text-gray-300">
-          <a href="#" className="hover:text-white transition">Home</a>
-          <a href="#products" className="hover:text-white transition">Products</a>
-          <a href="#contact" className="hover:text-white transition">Contact</a>
-        </nav>
-      </header>
+        {/* NAVBAR */}
+        <header style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "20px",
+          borderBottom: dark ? "1px solid #222" : "1px solid #ddd"
+        }}>
+          
+          <h1 style={{ fontWeight: "bold", letterSpacing: "2px" }}>
+            DTECH
+          </h1>
 
-      {/* HERO SECTION */}
-      <section className="text-center py-24">
-        <h2 className="text-5xl font-bold mb-4">
-          The Future of Technology
-        </h2>
+          <button
+            onClick={() => setDark(!dark)}
+            style={{
+              padding: "8px 12px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer"
+            }}
+          >
+            {dark ? "☀️ Light Mode" : "🌙 Dark Mode"}
+          </button>
+        </header>
 
-        <p className="text-gray-400">
-          DTECH builds next-generation smart devices
-        </p>
-      </section>
+        {/* HERO */}
+        <section style={{ textAlign: "center", padding: "80px 20px" }}>
+          <h2 style={{ fontSize: "50px", fontWeight: "bold" }}>
+            The Future of Technology
+          </h2>
 
-      {/* PRODUCTS */}
-      <section id="products" className="px-6 pb-20">
-        <h3 className="text-2xl font-bold mb-6">Products</h3>
+          <p style={{ color: "gray", marginTop: "10px" }}>
+            DTECH builds next-generation smart devices
+          </p>
+        </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+        {/* PRODUCTS */}
+        <section style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+          gap: "20px",
+          padding: "20px"
+        }}>
 
-          <a href="/dphone" className={glassCard}>📱 DPHONE</a>
-          <a href="/dpad" className={glassCard}>📟 DPAD</a>
-          <a href="/dbook" className={glassCard}>💻 DBOOK</a>
-          <a href="/dwatch" className={glassCard}>⌚ DWATCH</a>
-          <a href="/dbuds" className={glassCard}>🎧 DBUDS</a>
+          {["DPHONE", "DPAD", "DBOOK", "DWATCH", "DBUDS"].map((item) => (
+            <div key={item} style={{
+              background: dark ? "#111" : "white",
+              padding: "20px",
+              borderRadius: "12px",
+              textAlign: "center",
+              cursor: "pointer",
+              transition: "0.3s",
+              boxShadow: dark ? "none" : "0 2px 10px rgba(0,0,0,0.1)"
+            }}>
+              {item}
+            </div>
+          ))}
 
-        </div>
-      </section>
+        </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="text-center py-20 border-t border-white/10">
-        <h3 className="text-xl font-bold">Contact DTECH</h3>
-        <p className="text-gray-400 mt-2">support@dtech.com</p>
-      </section>
-
+      </div>
     </main>
   );
 }
-
-/* GLASS STYLE */
-const glassCard =
-  "bg-white/5 border border-white/10 backdrop-blur-md rounded-xl p-6 text-center hover:bg-white/10 transition transform hover:scale-105";
