@@ -2,21 +2,6 @@
 
 import React, { useState } from "react";
 
-const cardStyle: React.CSSProperties = {
-  background: "rgba(255,255,255,0.05)",
-  backdropFilter: "blur(10px)",
-  padding: "25px",
-  borderRadius: "16px",
-  textAlign: "center",
-  textDecoration: "none",
-  color: "white",
-  border: "1px solid rgba(255,255,255,0.1)",
-  transition: "all 0.3s ease",
-  cursor: "pointer",
-  fontSize: "20px",
-  fontWeight: "bold"
-};
-
 export default function Home() {
   const [dark, setDark] = useState(true);
 
@@ -29,7 +14,6 @@ export default function Home() {
             ? "linear-gradient(180deg,#050505,#0d0d0d,#111827)"
             : "#f5f5f5",
           color: dark ? "white" : "black",
-          transition: "0.3s"
         }}
       >
         {/* NAVBAR */}
@@ -39,115 +23,141 @@ export default function Home() {
             justifyContent: "space-between",
             alignItems: "center",
             padding: "20px 40px",
-            position: "sticky",
-            top: 0,
             backdropFilter: "blur(20px)",
-            background: dark
-              ? "rgba(0,0,0,0.6)"
-              : "rgba(255,255,255,0.7)",
-            borderBottom: dark
-              ? "1px solid #222"
-              : "1px solid #ddd"
+            background: "rgba(0,0,0,0.6)",
+            borderBottom: "1px solid #222",
           }}
         >
-          <h1
+          <div
             style={{
-              fontWeight: "bold",
-              letterSpacing: "3px",
-              fontSize: "28px"
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
             }}
           >
-            DTECH
-          </h1>
+            <img
+              src="/logo.png"
+              alt="DTECH"
+              style={{
+                height: "50px",
+              }}
+            />
+
+            <h1
+              style={{
+                letterSpacing: "3px",
+                margin: 0,
+              }}
+            >
+              DTECH
+            </h1>
+          </div>
 
           <button
             onClick={() => setDark(!dark)}
             style={{
-              padding: "8px 12px",
-              borderRadius: "8px",
+              padding: "10px 16px",
+              borderRadius: "10px",
               border: "none",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             {dark ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
         </header>
 
-        {/* FEATURED DPHONE */}
+        {/* HERO */}
         <section
           style={{
-            textAlign: "center",
-            padding: "120px 20px"
+            padding: "80px 20px",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "40px",
           }}
         >
-          <h1
-            style={{
-              fontSize: "80px",
-              marginBottom: "10px"
-            }}
-          >
-            📱 DPHONE X1
-          </h1>
+          <div style={{ maxWidth: "500px" }}>
+            <h1
+              style={{
+                fontSize: "70px",
+                marginBottom: "10px",
+              }}
+            >
+              DPHONE X1
+            </h1>
 
-          <h2
-            style={{
-              fontSize: "48px",
-              marginBottom: "20px"
-            }}
-          >
-            Power Beyond Limits
-          </h2>
+            <h2
+              style={{
+                color: "#60a5fa",
+              }}
+            >
+              The Future In Your Hands
+            </h2>
 
-          <p
-            style={{
-              maxWidth: "700px",
-              margin: "0 auto",
-              fontSize: "20px",
-              color: dark ? "#aaa" : "#555"
-            }}
-          >
-            Experience next-generation performance,
-            AI-powered photography, all-day battery life,
-            and premium design crafted by DTECH.
-          </p>
+            <p
+              style={{
+                color: "#aaa",
+                fontSize: "18px",
+                lineHeight: "1.8",
+              }}
+            >
+              Featuring a 6.7-inch AMOLED display,
+              8GB RAM, 256GB storage, AI camera system
+              and a 5000mAh battery.
+            </p>
 
-          <div
-            style={{
-              marginTop: "40px",
-              display: "flex",
-              justifyContent: "center",
-              gap: "20px",
-              flexWrap: "wrap"
-            }}
-          >
             <a
               href="/dphone"
               style={{
+                display: "inline-block",
+                marginTop: "20px",
                 background: "#2563eb",
                 color: "white",
-                textDecoration: "none",
                 padding: "14px 28px",
                 borderRadius: "10px",
-                fontWeight: "bold"
+                textDecoration: "none",
+                fontWeight: "bold",
               }}
             >
               Learn More
             </a>
-
-            <a
-              href="/dphone"
-              style={{
-                border: "1px solid #444",
-                color: "white",
-                textDecoration: "none",
-                padding: "14px 28px",
-                borderRadius: "10px",
-                fontWeight: "bold"
-              }}
-            >
-              View Specs
-            </a>
           </div>
+
+          <img
+            src="/dphone.png"
+            alt="DPHONE X1"
+            style={{
+              maxWidth: "500px",
+              width: "100%",
+            }}
+          />
+        </section>
+
+        {/* PRODUCT BOX */}
+        <section
+          style={{
+            textAlign: "center",
+            padding: "80px 20px",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "42px",
+              marginBottom: "30px",
+            }}
+          >
+            Premium Packaging
+          </h2>
+
+          <img
+            src="/dphone-box.png"
+            alt="DPHONE X1 Box"
+            style={{
+              maxWidth: "450px",
+              width: "100%",
+            }}
+          />
         </section>
 
         {/* PRODUCTS */}
@@ -155,42 +165,25 @@ export default function Home() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              "repeat(auto-fit, minmax(180px, 1fr))",
+              "repeat(auto-fit,minmax(180px,1fr))",
             gap: "20px",
-            padding: "20px"
+            padding: "20px",
           }}
         >
-          <a href="/dphone" style={cardStyle}>
-            📱 DPHONE
-          </a>
-
-          <a href="/dpad" style={cardStyle}>
-            📟 DPAD
-          </a>
-
-          <a href="/dbook" style={cardStyle}>
-            💻 DBOOK
-          </a>
-
-          <a href="/dwatch" style={cardStyle}>
-            ⌚ DWATCH
-          </a>
-
-          <a href="/dbuds" style={cardStyle}>
-            🎧 DBUDS
-          </a>
+          <a href="/dphone" style={cardStyle}>📱 DPHONE</a>
+          <a href="/dpad" style={cardStyle}>📟 DPAD</a>
+          <a href="/dbook" style={cardStyle}>💻 DBOOK</a>
+          <a href="/dwatch" style={cardStyle}>⌚ DWATCH</a>
+          <a href="/dbuds" style={cardStyle}>🎧 DBUDS</a>
         </section>
 
-        {/* FOOTER */}
         <footer
           style={{
             textAlign: "center",
             padding: "40px",
             marginTop: "100px",
-            borderTop: dark
-              ? "1px solid #222"
-              : "1px solid #ddd",
-            color: dark ? "#666" : "#777"
+            borderTop: "1px solid #222",
+            color: "#666",
           }}
         >
           © 2026 DTECH. All Rights Reserved.
@@ -199,3 +192,15 @@ export default function Home() {
     </main>
   );
 }
+
+const cardStyle: React.CSSProperties = {
+  background: "rgba(255,255,255,0.05)",
+  backdropFilter: "blur(10px)",
+  padding: "25px",
+  borderRadius: "16px",
+  textAlign: "center",
+  textDecoration: "none",
+  color: "white",
+  border: "1px solid rgba(255,255,255,0.1)",
+  fontWeight: "bold",
+};
